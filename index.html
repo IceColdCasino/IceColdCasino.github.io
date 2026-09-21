@@ -28,6 +28,7 @@
       <nav aria-label="Page">
         <a href="#protocol">Protocol</a>
         <a href="#encryption">Encryption</a>
+        <a href="#table">Table</a>
         <a href="#games">Games</a>
         <a href="#publication">Publication</a>
         <a href="https://github.com/IceColdCasino">GitHub</a>
@@ -89,9 +90,9 @@
           <div>
             <h3>Seal every partial.</h3>
             <p>
-              Each player computes their partial decryption and encrypts that
-              payload to every other registered key. The partial itself is
-              not published.
+              Each registered key computes its partial decryption and seals
+              that payload to every other key. The partial itself is not
+              published.
             </p>
           </div>
         </article>
@@ -102,7 +103,8 @@
             <p>
               Partials are aggregated, opened values are checked against the
               legal encoding, and the game function runs in-circuit. The
-              result leaves as a polynomial hash.
+              result leaves as a polynomial hash. Any key that already holds
+              the sealed partials can produce that proof.
             </p>
           </div>
         </article>
@@ -136,6 +138,130 @@
         </div>
       </section>
 
+      <section id="table" aria-labelledby="table-title">
+        <div class="section-head">
+          <p class="kicker">Who sits</p>
+          <h2 id="table-title">Two kinds of table.</h2>
+          <p class="deck">
+            Hold'em is peer to peer. House games add one key whose circuit
+            work is the shuffle and the share.
+          </p>
+        </div>
+        <div class="seats">
+          <article class="seat">
+            <p class="kicker">Hold'em</p>
+            <h3>Every seat is a player.</h3>
+            <p>
+              Two to ten players each register, shuffle, and share. One of
+              them proves showdown over the holes, the board, and the winner
+              masks. Pot membership is the only private extra. Street betting
+              stays outside these circuits.
+            </p>
+          </article>
+          <article class="seat">
+            <p class="kicker">House games</p>
+            <h3>The house holds a key.</h3>
+            <p>
+              Blackjack, roulette, craps, keno, and slots seat the house. It
+              shuffles the shoe and seals partials with everyone else, so its
+              secret is inside the aggregate and the player’s partials are
+              sealed to it. Bet commits, blackjack hit, stand, and split, and
+              a player’s own showdown are separate circuits.
+            </p>
+          </article>
+        </div>
+        <p class="closeout">
+          A hand can still close when a player never submits a showdown. Share
+          already delivered every partial to the house. The house runs that
+          same showdown circuit with its own key. The verifier still sees a
+          proof and a hash, and the faces stay off the public tape.
+        </p>
+      </section>
+
+      <section id="hand" aria-labelledby="hand-title">
+        <div class="section-head">
+          <p class="kicker">Example</p>
+          <h2 id="hand-title">A hand with two players.</h2>
+          <p class="deck">
+            Alice is seat 0 and Bob is seat 1. The poker circuits are compiled
+            for ten seats, so the other eight stay padding. Street betting
+            sits outside the proofs.
+          </p>
+        </div>
+        <ol class="flow">
+          <li class="flow-step">
+            <div class="flow-mark"><span>1</span></div>
+            <div class="flow-body">
+              <h3>Register</h3>
+              <p>Each player proves a key. The shoe will be encrypted under their sum.</p>
+              <div class="flow-split">
+                <div>
+                  <span>Alice</span>
+                  <code>pk_A = sk_A · G</code>
+                </div>
+                <div>
+                  <span>Bob</span>
+                  <code>pk_B = sk_B · G</code>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>2</span></div>
+            <div class="flow-body">
+              <h3>Shuffle</h3>
+              <p>Each permutation is a private witness. The public statement is that the output shoe is a re-encryption of a permutation of the input.</p>
+              <ol class="passes">
+                <li><span>Alice</span> permutes the 52 ciphertexts and re-encrypts them under <code>pk_A + pk_B</code>.</li>
+                <li><span>Bob</span> permutes that output and re-encrypts it under the same key.</li>
+              </ol>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>3</span></div>
+            <div class="flow-body">
+              <h3>Share</h3>
+              <p>The deal window is 25 positions. Each player seals a partial of every position to the other. The card mask picks a real partial, <code>sk · c0</code>, or the identity. The identity leaves that position closed.</p>
+              <div class="deal">
+                <div>
+                  <span>Alice</span>
+                  <div class="cards"><b>0</b><b>1</b></div>
+                </div>
+                <div>
+                  <span>Bob</span>
+                  <div class="cards"><b>2</b><b>3</b></div>
+                </div>
+                <div>
+                  <span>Board</span>
+                  <div class="cards"><b>20</b><b>21</b><b>22</b><b>23</b><b>24</b></div>
+                </div>
+              </div>
+              <p class="flow-note">Hole slots 4 through 19 belong to the empty seats and stay padding.</p>
+            </div>
+          </li>
+          <li class="flow-step off">
+            <div class="flow-mark"><span>4</span></div>
+            <div class="flow-body">
+              <h3>Betting</h3>
+              <p>Blinds and the streets are between Alice and Bob. Wager amounts are not witnesses in these circuits.</p>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>5</span></div>
+            <div class="flow-body">
+              <h3>Showdown</h3>
+              <p>One of them aggregates both partials, checks each opened card against <code>P(v)</code>, and scores both seven-card hands. The proof commits winner masks. If Alice never submits, Bob already holds her sealed partials and can close the hand. The same is true the other way.</p>
+              <div class="result">
+                <span>Public</span>
+                <b>Input hash</b>
+                <b>Groth16 proof</b>
+                <b>Winner-mask hash</b>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
       <section id="games" aria-labelledby="games-title">
         <div class="section-head">
           <p class="kicker">Parameters</p>
@@ -148,7 +274,7 @@
         <dl class="games">
           <div class="game">
             <dt>Hold'em</dt>
-            <dd>Best five-card hand, including side pots.</dd>
+            <dd>Peer to peer. Best five-card hand.</dd>
           </div>
           <div class="game">
             <dt>Blackjack</dt>

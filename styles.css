@@ -273,6 +273,199 @@ p code {
   margin-bottom: 0.7rem;
 }
 
+.seats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.seat {
+  padding: 1.35rem 1.3rem 1.45rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+}
+
+.seat .kicker { margin-bottom: 0.45rem; }
+
+.seat h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.85rem;
+  letter-spacing: -0.03em;
+}
+
+.seat p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.closeout {
+  margin: 1.6rem 0 0;
+  max-width: 40rem;
+  color: var(--muted);
+}
+
+.flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flow-step {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  column-gap: 1.1rem;
+}
+
+.flow-mark {
+  position: relative;
+}
+
+.flow-mark span {
+  position: relative;
+  z-index: 1;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin-top: 0.15rem;
+  border: 1px solid rgba(142, 201, 214, 0.55);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+  background: var(--bg);
+}
+
+.flow-step:not(:last-child) .flow-mark::after {
+  content: "";
+  position: absolute;
+  left: 1.075rem;
+  top: 2.3rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.flow-step.off .flow-mark span {
+  border-style: dashed;
+  border-color: var(--line);
+  color: var(--faint);
+}
+
+.flow-body { padding-bottom: 2.1rem; }
+
+.flow-body h3 {
+  margin: 0.2rem 0 0.45rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+}
+
+.flow-body > p,
+.flow-note {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--muted);
+}
+
+.flow-note {
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+}
+
+.flow-split,
+.passes,
+.deal,
+.result {
+  margin-top: 1rem;
+}
+
+.flow-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.flow-split div,
+.passes li,
+.result {
+  padding: 0.85rem 0.95rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+}
+
+.flow-split span,
+.deal span,
+.result span,
+.passes span {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+}
+
+.flow-split code {
+  color: var(--ice);
+  font-size: 0.92rem;
+}
+
+.passes {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 40rem;
+}
+
+.passes li { color: var(--muted); }
+
+.deal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.15rem 1.75rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cards b {
+  width: 2.15rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(215, 230, 238, 0.28);
+  border-radius: 0.28rem;
+  background: linear-gradient(180deg, rgba(142, 201, 214, 0.08), transparent 55%);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--ice);
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.7rem;
+  max-width: 40rem;
+}
+
+.result span { margin: 0; }
+
+.result b {
+  font-weight: 400;
+  color: var(--ink);
+}
+
 .signals {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -383,6 +576,8 @@ footer {
 @media (max-width: 800px) {
   .pub,
   .signals,
+  .seats,
+  .flow-split,
   .games,
   .phase {
     grid-template-columns: 1fr;
@@ -405,5 +600,7 @@ footer {
     gap: 0.7rem;
   }
 
-  nav { gap: 0.45rem 0.8rem; }
+  nav { gap: 0.4rem 0.55rem; }
+
+  nav a { font-size: 0.88rem; }
 }

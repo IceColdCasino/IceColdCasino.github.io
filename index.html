@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ice Cold Casino</title>
+  <meta name="description" content="Groth16 mental-poker circuits for a casino shoe that no single party can open. Published for audit. Patent pending.">
+  <link rel="canonical" href="https://icecold.casino/">
+  <meta property="og:title" content="Ice Cold Casino">
+  <meta property="og:description" content="Threshold mental poker, proved in zero knowledge. Circuits published for audit.">
+  <meta property="og:url" content="https://icecold.casino/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#080c10">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <div class="wrap bar">
+      <a class="mark" href="/">
+        <span class="mark-name">Ice Cold</span>
+        <span class="mark-tld">casino</span>
+      </a>
+      <nav aria-label="Page">
+        <a href="#protocol">Protocol</a>
+        <a href="#encryption">Encryption</a>
+        <a href="#games">Games</a>
+        <a href="#publication">Publication</a>
+        <a href="https://github.com/IceColdCasino">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="title">
+        <p class="kicker">USPTO 19/811,546 · patent pending</p>
+        <h1 id="title">A shoe no single party can open.</h1>
+        <p class="lede">
+          Ice Cold Casino is a zero-knowledge mental-poker stack. Players
+          jointly encrypt and shuffle the shoe, seal partial decryptions to
+          one another, and prove the showdown. The verifier checks a Groth16
+          proof and two hashes. The faces stay off the public tape.
+        </p>
+        <p class="actions">
+          <a class="primary" href="https://github.com/IceColdCasino">GitHub organization</a>
+          <a href="https://github.com/IceColdCasino/repo">Circuit repository</a>
+        </p>
+      </section>
+
+      <section id="protocol" aria-labelledby="protocol-title">
+        <div class="section-head">
+          <p class="kicker">Four phases</p>
+          <h2 id="protocol-title">One protocol.</h2>
+          <p class="deck">
+            Every game runs the same sequence. Each phase is a Circom circuit.
+            A Poseidon commitment threads the private witness from one phase
+            to the next, so the witness is never written onto the public tape.
+          </p>
+        </div>
+
+        <article class="phase">
+          <div class="phase-id">01 · Register</div>
+          <div>
+            <h3>Prove the key.</h3>
+            <p>
+              Each party proves <code>pk = sk · G</code> on BabyJubJub and
+              emits a padding ciphertext for seats that are empty.
+            </p>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="phase-id">02 · Shuffle</div>
+          <div>
+            <h3>Permute, then re-encrypt.</h3>
+            <p>
+              The encrypted shoe is permuted under a private matrix and
+              re-randomized under the aggregate key. The public statement is
+              that the output is a re-encryption of a permutation of the input.
+            </p>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="phase-id">03 · Share</div>
+          <div>
+            <h3>Seal every partial.</h3>
+            <p>
+              Each player computes their partial decryption and encrypts that
+              payload to every other registered key. The partial itself is
+              not published.
+            </p>
+          </div>
+        </article>
+        <article class="phase">
+          <div class="phase-id">04 · Showdown</div>
+          <div>
+            <h3>Open, evaluate, commit.</h3>
+            <p>
+              Partials are aggregated, opened values are checked against the
+              legal encoding, and the game function runs in-circuit. The
+              result leaves as a polynomial hash.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section id="encryption" aria-labelledby="encryption-title">
+        <div class="section-head">
+          <p class="kicker">Threshold ElGamal</p>
+          <h2 id="encryption-title">Every key, or no face.</h2>
+          <p class="deck">
+            A shoe index — card, pocket, die, reel stop, or ball — is a curve
+            point <code>P(v) = (v + 1) · G</code>. The shoe is encrypted under
+            the sum of every registered public key. Recovering a plaintext
+            takes a contribution from each secret.
+          </p>
+        </div>
+        <pre class="formula"><span>Aggregate decryption</span>P = c1 − Σ (sk_i · c0)</pre>
+        <div class="signals">
+          <div class="signal">
+            <strong>Input hash</strong>
+            <p>Poseidon commitment over the shoe, the keys, and the designation.</p>
+          </div>
+          <div class="signal">
+            <strong>Proof</strong>
+            <p>Groth16 attestation that the circuit accepted the private witness.</p>
+          </div>
+          <div class="signal">
+            <strong>Output hash</strong>
+            <p>Polynomial commitment to the sealed payloads or the evaluated result.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="games" aria-labelledby="games-title">
+        <div class="section-head">
+          <p class="kicker">Parameters</p>
+          <h2 id="games-title">The game is the shoe.</h2>
+          <p class="deck">
+            Encryption does not change. The shoe size, which positions open,
+            and the evaluation function do.
+          </p>
+        </div>
+        <dl class="games">
+          <div class="game">
+            <dt>Hold'em</dt>
+            <dd>Best five-card hand, including side pots.</dd>
+          </div>
+          <div class="game">
+            <dt>Blackjack</dt>
+            <dd>Player against the dealer, with hit, stand, and split.</dd>
+          </div>
+          <div class="game">
+            <dt>Baccarat</dt>
+            <dd>Player, banker, or tie under the tableau.</dd>
+          </div>
+          <div class="game">
+            <dt>War</dt>
+            <dd>Higher rank, and a second card when the first ties.</dd>
+          </div>
+          <div class="game">
+            <dt>Roulette</dt>
+            <dd>One pocket on a 37- or 38-number wheel.</dd>
+          </div>
+          <div class="game">
+            <dt>Craps</dt>
+            <dd>Two dice, come-out or point, against table bets.</dd>
+          </div>
+          <div class="game">
+            <dt>Keno</dt>
+            <dd>Twenty draws against an encrypted ticket.</dd>
+          </div>
+          <div class="game">
+            <dt>Slots</dt>
+            <dd>A three- or five-reel window against a paytable.</dd>
+          </div>
+          <div class="game">
+            <dt>Bingo</dt>
+            <dd>Called balls on a 75- or 90-ball card.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="publication" aria-labelledby="publication-title">
+        <div class="section-head">
+          <p class="kicker">Audit</p>
+          <h2 id="publication-title">What is published.</h2>
+        </div>
+        <div class="pub">
+          <div>
+            <p>
+              <strong>The public tree is the Circom sources and the protocol notes.</strong>
+              It exists for audit and transparency. Copyright © 2026 Barrett Harber.
+              All rights reserved. USPTO application 19/811,546 is patent pending.
+              No copyright license and no patent license are granted.
+            </p>
+            <p>
+              Arcium MPC, the Solana programs, and the native application live
+              outside that repository. Those layers consume the same hashes
+              and proofs.
+            </p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/IceColdCasino"><span>Organization</span>github.com/IceColdCasino</a>
+            <a href="https://github.com/IceColdCasino/repo"><span>Circuits</span>github.com/IceColdCasino/repo</a>
+            <a href="https://github.com/IceColdCasino/repo/blob/main/docs/zk-casino/README.md"><span>Protocol notes</span>docs/zk-casino</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© 2026 Barrett Harber. All rights reserved.</span>
+      <span>Patent pending · USPTO 19/811,546</span>
+    </div>
+  </footer>
+</body>
+</html>

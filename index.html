@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ice Cold Casino</title>
-  <meta name="description" content="Groth16 mental-poker circuits for a casino shoe that no single party can open. Published for audit. Patent pending.">
+  <meta name="description" content="A casino you don’t have to trust. No one can see the deck or rig the deal, and every hand comes with a receipt anyone can check. Patent pending.">
   <link rel="canonical" href="https://icecold.casino/">
   <meta property="og:title" content="Ice Cold Casino">
-  <meta property="og:description" content="Threshold mental poker, proved in zero knowledge. Circuits published for audit.">
+  <meta property="og:description" content="A casino you don’t have to trust. Every hand comes with a receipt anyone can check.">
   <meta property="og:url" content="https://icecold.casino/">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#080c10">
@@ -26,11 +26,9 @@
         <span class="mark-tld">casino</span>
       </a>
       <nav aria-label="Page">
-        <a href="#protocol">Protocol</a>
-        <a href="#encryption">Encryption</a>
-        <a href="#table">Table</a>
-        <a href="#games">Games</a>
-        <a href="#publication">Publication</a>
+        <a href="#why">Why it’s fair</a>
+        <a href="#how">How it works</a>
+        <a href="#tech">Technology</a>
         <a href="https://github.com/IceColdCasino">GitHub</a>
       </nav>
     </div>
@@ -39,17 +37,169 @@
   <main id="content">
     <div class="wrap">
       <section class="hero" aria-labelledby="title">
-        <p class="kicker">USPTO 19/811,546 · patent pending</p>
-        <h1 id="title">A shoe no single party can open.</h1>
+        <p class="kicker">Patent pending</p>
+        <h1 id="title">A casino you don’t have to trust.</h1>
         <p class="lede">
-          Ice Cold Casino is a zero-knowledge mental-poker stack. Players
-          jointly encrypt and shuffle the shoe, seal partial decryptions to
-          one another, and prove the showdown. The verifier checks a Groth16
-          proof and two hashes. The faces stay off the public tape.
+          Online casinos ask you to take their word that the cards are
+          shuffled fairly and that nobody is peeking. Ice Cold Casino replaces
+          that promise with proof. No one can see the deck or rig the deal:
+          not the other players, not the house, and not us. Every hand comes
+          with a receipt anyone can check.
         </p>
         <p class="actions">
+          <a class="primary" href="#how">See how it works</a>
+          <a href="#tech">Technical details</a>
+        </p>
+      </section>
+
+      <section id="why" aria-labelledby="why-title">
+        <div class="section-head">
+          <p class="kicker">Why it’s fair</p>
+          <h2 id="why-title">Fair by design, not by promise.</h2>
+        </div>
+        <div class="values">
+          <article class="value">
+            <h3>No one can stack the deck.</h3>
+            <p>
+              Every player shuffles in turn, and so does the house at house
+              games. Each shuffle is checked before the game goes on, so no
+              single person decides the order of the cards.
+            </p>
+          </article>
+          <article class="value">
+            <h3>Only you see your cards.</h3>
+            <p>
+              The deck is locked with every player’s key at once. Your cards
+              open only for you until it’s time to show them, and the public
+              record never shows a card. A folded hand stays hidden unless
+              you choose to show it.
+            </p>
+          </article>
+          <article class="value">
+            <h3>Payouts follow the proof.</h3>
+            <p>
+              Chips are held by a neutral vault that no single computer
+              controls. Winnings are paid only after the result checks out, so
+              no one can quietly change who won.
+            </p>
+          </article>
+          <article class="value">
+            <h3>No one can stall the game.</h3>
+            <p>
+              Bets and showdowns run on a clock. If a player walks away, they
+              are folded or the hand closes without them, so nobody can hold a
+              table hostage.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how" aria-labelledby="how-title">
+        <div class="section-head">
+          <p class="kicker">How it works</p>
+          <h2 id="how-title">Lock. Shuffle. Prove.</h2>
+          <p class="deck">Three simple ideas keep every game honest.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="num">01</span>
+            <h3>Everyone locks the deck.</h3>
+            <p>
+              Each player puts their own lock on every card, then shuffles the
+              deck. A card opens only when every lock on it is turned, so no
+              one can open one alone.
+            </p>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <h3>Cards open right on time.</h3>
+            <p>
+              Before the deal, each player gives a neutral vault a sealed
+              envelope for every card, addressed to whoever may see it. The
+              vault can’t read them. It delivers each one when the game
+              reaches that card, so no one can open a card early or refuse to
+              open it later.
+            </p>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <h3>Proof, then payout.</h3>
+            <p>
+              When the hand ends, the result comes with a short mathematical
+              proof that anyone can check without seeing a single card. The
+              vault pays out only if the proof matches.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="play" aria-labelledby="play-title">
+        <div class="section-head">
+          <p class="kicker">Games</p>
+          <h2 id="play-title">Nine games. One fair deal.</h2>
+        </div>
+        <div class="play">
+          <div>
+            <p class="kicker">Against other players</p>
+            <ul class="pills">
+              <li>Texas Hold’em</li>
+              <li>Bingo</li>
+            </ul>
+          </div>
+          <div>
+            <p class="kicker">Against the house</p>
+            <ul class="pills">
+              <li>Blackjack</li>
+              <li>Baccarat</li>
+              <li>War</li>
+              <li>Roulette</li>
+              <li>Craps</li>
+              <li>Keno</li>
+              <li>Slots</li>
+            </ul>
+          </div>
+        </div>
+        <p class="play-note">
+          Dice rolls, roulette spins, slot reels, and bingo balls are dealt
+          the same way as cards, from a locked deck that everyone shuffled.
+          At house games the house helps lock and shuffle too, and it can’t
+          see the cards either.
+        </p>
+      </section>
+
+      <section id="tech" class="tech-intro" aria-labelledby="tech-title">
+        <div class="section-head">
+          <p class="kicker">Under the hood · USPTO 19/811,546</p>
+          <h2 id="tech-title">A shoe no single party can open.</h2>
+          <p class="deck">
+            Ice Cold Casino is a zero-knowledge mental-poker stack on Solana.
+            Players jointly encrypt and shuffle the shoe, seal partial
+            decryptions to one another, and prove each phase in Groth16. An
+            Arcium MPC cluster holds the chips and pays out only what the proof
+            attests. The faces stay off the public tape.
+          </p>
+          <p class="deck">
+            In the plain version above, the locks are threshold ElGamal keys.
+            The sealed envelopes are partial decryptions staged with the
+            cluster. The receipt is a Groth16 proof verified on Solana, and
+            the neutral vault is the Arcium cluster.
+          </p>
+        </div>
+        <nav class="index" aria-label="Technical sections">
+          <a href="#protocol">Protocol</a>
+          <a href="#encryption">Encryption</a>
+          <a href="#mpc">MPC + ZK</a>
+          <a href="#table">Tables</a>
+          <a href="#hand">Example hand</a>
+          <a href="#games">Game parameters</a>
+          <a href="#stack">App stack</a>
+          <a href="#prover">Prover and compiler</a>
+          <a href="#publication">Publication</a>
+        </nav>
+        <p class="actions">
           <a class="primary" href="https://github.com/IceColdCasino">GitHub organization</a>
-          <a href="https://github.com/IceColdCasino/repo">Circuit repository</a>
+          <a href="https://github.com/IceColdCasino/repo">Code repository</a>
+          <a href="https://github.com/IceColdCasino/groth16">groth16 prover</a>
         </p>
       </section>
 
@@ -58,9 +208,10 @@
           <p class="kicker">Four phases</p>
           <h2 id="protocol-title">One protocol.</h2>
           <p class="deck">
-            Every game runs the same sequence. Each phase is a Circom circuit.
-            A Poseidon commitment threads the private witness from one phase
-            to the next, so the witness is never written onto the public tape.
+            Every game runs the same sequence. Each phase is a Circom circuit,
+            and every proof is verified on Solana. A Poseidon commitment
+            threads the private witness from one phase to the next, so the
+            witness is never written onto the public tape.
           </p>
         </div>
 
@@ -91,8 +242,9 @@
             <h3>Seal every partial.</h3>
             <p>
               Each registered key computes its partial decryption and seals
-              that payload to every other key. The partial itself is not
-              published.
+              that payload to every other key. The proof commits the sealed
+              partials as Poseidon hashes, grouped so one card, street, or
+              ball can open alone. The partial itself is not published.
             </p>
           </div>
         </article>
@@ -103,8 +255,8 @@
             <p>
               Partials are aggregated, opened values are checked against the
               legal encoding, and the game function runs in-circuit. The
-              result leaves as a polynomial hash. Any key that already holds
-              the sealed partials can produce that proof.
+              result leaves as one field element, weighted by two
+              coefficients the MPC cluster sealed to the prover.
             </p>
           </div>
         </article>
@@ -125,17 +277,160 @@
         <div class="signals">
           <div class="signal">
             <strong>Input hash</strong>
-            <p>Poseidon commitment over the shoe, the keys, and the designation.</p>
+            <p>Poseidon over the shoe, the keys, and the designation. At showdown the seal commitment is hashed last.</p>
           </div>
           <div class="signal">
             <strong>Proof</strong>
-            <p>Groth16 attestation that the circuit accepted the private witness.</p>
+            <p>Groth16 on BN254. light-casino runs the pairing on Solana and writes a receipt.</p>
           </div>
           <div class="signal">
-            <strong>Output hash</strong>
-            <p>Polynomial commitment to the sealed payloads or the evaluated result.</p>
+            <strong>Output</strong>
+            <p>Share publishes a Poseidon fold of the sealed partials. Showdown publishes the result under the sealed coefficients.</p>
           </div>
         </div>
+      </section>
+
+      <section id="mpc" aria-labelledby="mpc-title">
+        <div class="section-head">
+          <p class="kicker">Arcium MPC + Groth16</p>
+          <h2 id="mpc-title">Proofs for the cards. MPC for the chips.</h2>
+          <p class="deck">
+            Groth16 proves what happened to the shoe. An Arcium MXE cluster
+            holds the chips, the staged partials, and the showdown
+            coefficients, and changes them only through encrypted
+            instructions. Three parts split the work on Solana, and neither
+            side does the other’s job.
+          </p>
+        </div>
+        <div class="lanes">
+          <article class="seat">
+            <p class="kicker">light-casino</p>
+            <h3>Verifies.</h3>
+            <p>
+              Runs the Groth16 pairing for register, shuffle, share, showdown,
+              and each bet or action circuit. A valid proof becomes a receipt,
+              which it hands to casino by CPI. Shuffle and share artifacts can
+              be stored as Light Protocol compressed accounts.
+            </p>
+          </article>
+          <article class="seat">
+            <p class="kicker">casino</p>
+            <h3>Orders.</h3>
+            <p>
+              Owns rooms, tables, the SPL vault, escrow, the hand, and the
+              dealer pool. It consumes each receipt, enforces the phase,
+              latches the showdown hash, and queues every encrypted
+              instruction.
+            </p>
+          </article>
+          <article class="seat">
+            <p class="kicker">Arcium cluster</p>
+            <h3>Holds.</h3>
+            <p>
+              Runs the Arcis instructions that casino queues. Balances are
+              Rescue ciphertexts. Each result comes back in a signed callback,
+              and a callback that fails its signature check writes nothing.
+            </p>
+          </article>
+        </div>
+
+        <div class="sub-head">
+          <h3>Where they meet.</h3>
+          <p>
+            Each step below is queued by casino, run by the cluster, and
+            written back by a callback.
+          </p>
+        </div>
+        <dl class="handoffs">
+          <div>
+            <dt>Buy-in<code>lock_table_buyin</code></dt>
+            <dd>
+              A deposit is credited to the encrypted room wallet, and the
+              buy-in moves to table escrow only when the wallet covers it. A
+              failed check leaves both ciphertexts as they were. The cluster
+              never mints chips to make a move succeed.
+            </dd>
+          </div>
+          <div>
+            <dt>Staging<code>verify_deck_hash_chunk</code></dt>
+            <dd>
+              During share, each seat hands its sealed partials to the cluster
+              in four-limb chunks, and the cluster re-seals them to itself.
+              The share proof commits to the same partials.
+            </dd>
+          </div>
+          <div>
+            <dt>Betting<code>validate_bet</code></dt>
+            <dd>
+              Each action is checked against the encrypted stack and the
+              current bet, and the new stack comes back as a ciphertext. Only
+              the bet delta, the current bet, fold, all-in, and whether the
+              street closed are revealed. The program rebuilds side pots from
+              those deltas and opens the next street inside the callback.
+            </dd>
+          </div>
+          <div>
+            <dt>Cards<code>reveal_card</code></dt>
+            <dd>
+              Opens one staged card to one recipient: your hole cards first,
+              the board as each street closes, and live hole cards at
+              showdown. Folded and mucked hands never open. The chain checks
+              the opened bytes against the share proof’s hash, and the face
+              stays sealed to the recipient. A seat that goes quiet cannot
+              hold back a card the hand has reached.
+            </dd>
+          </div>
+          <div>
+            <dt>Seal<code>seal_showdown_pair</code></dt>
+            <dd>
+              Draws two 128-bit coefficients with the top bit set, seals both
+              to the seat that will prove, and reveals four weighted sums of
+              their bits.
+            </dd>
+          </div>
+          <div>
+            <dt>Settlement<code>distribute_and_settle</code></dt>
+            <dd>
+              Recomputes the showdown value from the encrypted result and the
+              sealed coefficients, and compares it with the hash casino
+              latched from the proof. A match credits the seat’s encrypted
+              escrow. A mismatch moves nothing. Only the match bit is
+              revealed.
+            </dd>
+          </div>
+        </dl>
+
+        <div class="seal">
+          <pre class="formula"><span>Sealed showdown</span>out  = (r0 + 1) · c0 + (r1 + 1) · c1
+seal = Poseidon(row0, row1, row2, row3)</pre>
+          <ol class="seal-steps">
+            <li>
+              <strong>The cluster draws.</strong>
+              The low 127 bits of <code>c0</code> and <code>c1</code> come from
+              the cluster’s randomness, so the prover cannot choose them. Only
+              the four row sums are public.
+            </li>
+            <li>
+              <strong>The circuit binds.</strong>
+              It splits each coefficient into 128 bits, checks the top bit,
+              rebuilds the four rows from the same public weights, and hashes
+              them last into its input hash.
+            </li>
+            <li>
+              <strong>The cluster settles.</strong>
+              light-casino checks the pairing and casino latches
+              <code>out</code>. The cluster recomputes <code>out</code> from
+              the encrypted result and pays only on a match.
+            </li>
+          </ol>
+        </div>
+        <p class="closeout">
+          Wider results are packed before they are weighted. Poker’s nine
+          winner masks become <code>Σ mask_i · 1024^i</code>, and roulette’s
+          twelve bets become <code>Σ code_i · 36^i</code>. The cluster never
+          runs a pairing, and the verifier never sees the result. The sealed
+          coefficients are what tie the two together.
+        </p>
       </section>
 
       <section id="table" aria-labelledby="table-title">
@@ -143,38 +438,45 @@
           <p class="kicker">Who sits</p>
           <h2 id="table-title">Two kinds of table.</h2>
           <p class="deck">
-            Hold'em is peer to peer. House games add one key whose circuit
-            work is the shuffle and the share.
+            Poker and bingo are player against player. The other seven games
+            seat the house, which joins the shuffle and the share but never
+            bets.
           </p>
         </div>
         <div class="seats">
           <article class="seat">
-            <p class="kicker">Hold'em</p>
+            <p class="kicker">Poker and bingo</p>
             <h3>Every seat is a player.</h3>
             <p>
-              Two to ten players each register, shuffle, and share. One of
-              them proves showdown over the holes, the board, and the winner
-              masks. Pot membership is the only private extra. Street betting
-              stays outside these circuits.
+              Two to ten poker players register, shuffle, and share. Any seat
+              still in the pot may prove showdown, and one proof completes the
+              hand. Winners are paid from the chips the seats committed, and
+              bingo pays from a pot of card prices. There is no dealer pool.
             </p>
           </article>
           <article class="seat">
             <p class="kicker">House games</p>
             <h3>The house holds a key.</h3>
             <p>
-              Blackjack, roulette, craps, keno, and slots seat the house. It
-              shuffles the shoe and seals partials with everyone else, so its
-              secret is inside the aggregate and the player’s partials are
-              sealed to it. Bet commits, blackjack hit, stand, and split, and
-              a player’s own showdown are separate circuits.
+              Baccarat, blackjack, war, roulette, craps, keno, and slots
+              reserve a seat for the house. It registers, shuffles, and
+              shares, so its secret is part of the aggregate key, but it
+              places no bet. Winners are paid from an encrypted dealer pool,
+              and a hand cannot start until the pool is funded to cover it.
             </p>
           </article>
         </div>
         <p class="closeout">
-          A hand can still close when a player never submits a showdown. Share
-          already delivered every partial to the house. The house runs that
-          same showdown circuit with its own key. The verifier still sees a
-          proof and a hash, and the faces stay off the public tape.
+          Showdown opens a three-minute window, and the bettor proves inside
+          it. After that the house may submit the same showdown proof, since
+          its build keeps that circuit, so a player who walks away does not
+          hold the table. If no proof arrives, <code>forfeit_showdown</code>
+          closes the hand without one. It never invents a proof, and a later
+          proof is rejected. At poker and bingo tables, the operator who
+          opened the game signs it. Blackjack adds a second three-minute clock
+          for actions, and a seat that leaves is stood. Poker gives each
+          betting decision one minute, and after that anyone can fold the seat
+          with <code>expire_bet_turn</code>.
         </p>
       </section>
 
@@ -184,15 +486,22 @@
           <h2 id="hand-title">A hand with two players.</h2>
           <p class="deck">
             Alice is seat 0 and Bob is seat 1. The poker circuits are compiled
-            for ten seats, so the other eight stay padding. Street betting
-            sits outside the proofs.
+            for ten seats, so the other eight stay padding. Each step is a
+            Groth16 proof, an Arcium computation, or both.
           </p>
         </div>
         <ol class="flow">
           <li class="flow-step">
             <div class="flow-mark"><span>1</span></div>
             <div class="flow-body">
-              <h3>Register</h3>
+              <h3>Buy in <span class="tag mpc">MPC</span></h3>
+              <p>Each deposit is credited to an encrypted room wallet, and <code>lock_table_buyin</code> moves the buy-in into table escrow. The cluster refuses any move the wallet cannot cover.</p>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>2</span></div>
+            <div class="flow-body">
+              <h3>Register <span class="tag">ZK</span></h3>
               <p>Each player proves a key. The shoe will be encrypted under their sum.</p>
               <div class="flow-split">
                 <div>
@@ -207,9 +516,9 @@
             </div>
           </li>
           <li class="flow-step">
-            <div class="flow-mark"><span>2</span></div>
+            <div class="flow-mark"><span>3</span></div>
             <div class="flow-body">
-              <h3>Shuffle</h3>
+              <h3>Shuffle <span class="tag">ZK</span></h3>
               <p>Each permutation is a private witness. The public statement is that the output shoe is a re-encryption of a permutation of the input.</p>
               <ol class="passes">
                 <li><span>Alice</span> permutes the 52 ciphertexts and re-encrypts them under <code>pk_A + pk_B</code>.</li>
@@ -218,10 +527,10 @@
             </div>
           </li>
           <li class="flow-step">
-            <div class="flow-mark"><span>3</span></div>
+            <div class="flow-mark"><span>4</span></div>
             <div class="flow-body">
-              <h3>Share</h3>
-              <p>The deal window is 25 positions. Each player seals a partial of every position to the other. The card mask picks a real partial, <code>sk · c0</code>, or the identity. The identity leaves that position closed.</p>
+              <h3>Share <span class="tag">ZK</span><span class="tag mpc">MPC</span></h3>
+              <p>The deal window is 25 positions. Each player seals a partial of every position to the other. The card mask picks a real partial, <code>sk · c0</code>, or the identity, which leaves that position closed. The proof commits the sealed partials by hole pair and by street, and the same partials are staged with the cluster.</p>
               <div class="deal">
                 <div>
                   <span>Alice</span>
@@ -239,23 +548,58 @@
               <p class="flow-note">Hole slots 4 through 19 belong to the empty seats and stay padding.</p>
             </div>
           </li>
-          <li class="flow-step off">
-            <div class="flow-mark"><span>4</span></div>
-            <div class="flow-body">
-              <h3>Betting</h3>
-              <p>Blinds and the streets are between Alice and Bob. Wager amounts are not witnesses in these circuits.</p>
-            </div>
-          </li>
           <li class="flow-step">
             <div class="flow-mark"><span>5</span></div>
             <div class="flow-body">
-              <h3>Showdown</h3>
-              <p>One of them aggregates both partials, checks each opened card against <code>P(v)</code>, and scores both seven-card hands. The proof commits winner masks. If Alice never submits, Bob already holds her sealed partials and can close the hand. The same is true the other way.</p>
+              <h3>Bet and deal <span class="tag mpc">MPC</span></h3>
+              <p>Every action runs through <code>validate_bet</code> against the encrypted stack. <code>reveal_card</code> opens each card when the hand reaches it.</p>
+              <ol class="passes">
+                <li><span>Preflop</span> Blinds are 10 and 20. Alice’s hole cards open to Alice, and Bob’s to Bob.</li>
+                <li><span>Flop · turn · river</span> Each street closes inside the <code>validate_bet</code> callback. Cards 20–22, then 23, then 24 open to both.</li>
+                <li><span>Showdown</span> Each player’s live hole cards open to the other.</li>
+              </ol>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>6</span></div>
+            <div class="flow-body">
+              <h3>Seal <span class="tag mpc">MPC</span></h3>
+              <p>The seat that will prove asks the cluster for its seal. The prover can open the coefficients. Everyone else sees only their row sums.</p>
+              <div class="flow-split">
+                <div>
+                  <span>Sealed to the prover</span>
+                  <code>c0, c1</code>
+                </div>
+                <div>
+                  <span>Public</span>
+                  <code>row0 … row3</code>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>7</span></div>
+            <div class="flow-body">
+              <h3>Showdown <span class="tag">ZK</span></h3>
+              <p>That seat aggregates both partials, checks each opened card against <code>P(v)</code>, scores both seven-card hands, and packs the winner masks. Alice does not need to be online for it. Her partials for Bob are already with the cluster, so Bob can open her live hole cards and prove alone.</p>
               <div class="result">
                 <span>Public</span>
                 <b>Input hash</b>
                 <b>Groth16 proof</b>
-                <b>Winner-mask hash</b>
+                <b>Sealed result <code>out</code></b>
+              </div>
+            </div>
+          </li>
+          <li class="flow-step">
+            <div class="flow-mark"><span>8</span></div>
+            <div class="flow-body">
+              <h3>Settle <span class="tag mpc">MPC</span></h3>
+              <p>light-casino verifies the proof, and casino latches <code>out</code>. <code>distribute_and_settle</code> recomputes it from the encrypted winner masks and the seal, then credits each seat’s encrypted escrow. A mismatch pays nothing.</p>
+              <div class="result">
+                <span>Revealed</span>
+                <b>Match bit</b>
+                <span>Encrypted</span>
+                <b>Escrow credit</b>
               </div>
             </div>
           </li>
@@ -268,7 +612,8 @@
           <h2 id="games-title">The game is the shoe.</h2>
           <p class="deck">
             Encryption does not change. The shoe size, which positions open,
-            and the evaluation function do.
+            and the evaluation function do. Poker and bingo pay from the
+            players’ own chips. The rest pay from the dealer pool.
           </p>
         </div>
         <dl class="games">
@@ -306,9 +651,148 @@
           </div>
           <div class="game">
             <dt>Bingo</dt>
-            <dd>Called balls on a 75- or 90-ball card.</dd>
+            <dd>Peer to peer. Called balls on a 75- or 90-ball card.</dd>
           </div>
         </dl>
+      </section>
+
+      <section id="stack" aria-labelledby="stack-title">
+        <div class="section-head">
+          <p class="kicker">Stack</p>
+          <h2 id="stack-title">Native on the Mac.</h2>
+          <p class="deck">
+            The macOS app is a Zig shell around a Svelte front end. Keys,
+            decryption, witnesses, and proofs run in native code.
+            Transactions and cluster encryption run in the WebView.
+          </p>
+        </div>
+        <div class="signals layers">
+          <div class="signal">
+            <strong>App shell</strong>
+            <p>Zig 0.17 on the zero-native framework. An AppKit host embeds the system WKWebView. Chromium through CEF is optional.</p>
+          </div>
+          <div class="signal">
+            <strong>Front end</strong>
+            <p>Svelte 5 and Vite. The Solana web3 and Anchor clients send transactions straight to RPC. The Arcium client derives an X25519 key for each game, seat, and purpose, and encrypts to the cluster with Rescue.</p>
+          </div>
+          <div class="signal">
+            <strong>Native bridge</strong>
+            <p><code>player</code> runs keygen, decryption, and proving on a worker thread with a 64 MB stack, off the AppKit main thread. <code>zk.witness.generate</code> and <code>zk.prove</code> expose the witness generator and the prover.</p>
+          </div>
+          <div class="signal">
+            <strong>libzkcasino</strong>
+            <p>Zig. The BN254 field from rapidsnark’s C++ and arm64 assembly, Poseidon, BabyJubJub, decryption, the shuffle permutation, and a witness library for each game.</p>
+          </div>
+          <div class="signal">
+            <strong>Prover</strong>
+            <p><code>libgroth16</code>, loaded at run time. Zig on the CPU and Metal on the GPU, described below.</p>
+          </div>
+          <div class="signal">
+            <strong>Programs</strong>
+            <p>casino on Anchor 1.0 with arcium-anchor 0.14. light-casino on Pinocchio with groth16-solana and Light Protocol. The Arcis instructions run on the MXE cluster.</p>
+          </div>
+          <div class="signal">
+            <strong>House</strong>
+            <p>One Linux arm64 image per house game, built with <code>-Dhouse=true</code> and proved with rapidsnark. Bet circuits are left out. The showdown circuit stays.</p>
+          </div>
+          <div class="signal">
+            <strong>Tests</strong>
+            <p>Host tests prove every phase of every game. Nine two-player hands run through Arcis on localnet. CI runs on arm64 Linux and macOS.</p>
+          </div>
+          <div class="signal">
+            <strong>Formal model</strong>
+            <p>Lean 4 with DyLean: a symbolic model of the four phases with secrecy and authentication theorems, plus integer semantics for all nine showdown evaluators. CI runs <code>lake build</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="prover" aria-labelledby="prover-title">
+        <div class="section-head">
+          <p class="kicker">Toolchain</p>
+          <h2 id="prover-title">A rewritten prover. A patched compiler.</h2>
+          <p class="deck">
+            The prover was rewritten and the compiler patched for circuits
+            this size. Each piece is a public repository.
+          </p>
+        </div>
+        <div class="tool">
+          <div>
+            <p class="kicker">IceColdCasino/groth16 · v0.2.1</p>
+            <h3>groth16</h3>
+            <p>
+              A Groth16 prover and proving-key tool written in Zig, with Metal
+              on the GPU. <code>libgroth16</code> is a drop-in for
+              librapidsnark: the same <code>groth16_*</code> C calls, the same
+              JSON, the same return codes. <code>zkey</code> replaces snarkjs
+              for setup, contribution, and verification-key export, and its
+              exported verification keys match snarkjs byte for byte.
+            </p>
+            <p>
+              Metal runs the G1 multiscalar multiplications and computes
+              <code>H = A·B − C</code>. Zig threads take a 64k-point chunk of
+              G2 and the QAP at the same time. Circuits with a domain of 4096
+              or less stay on the CPU.
+            </p>
+            <pre class="formula install"><span>Homebrew · macOS 14+</span>brew trust --tap IceColdCasino/groth16
+brew tap IceColdCasino/groth16 https://github.com/IceColdCasino/groth16
+brew install icecoldcasino/groth16/zkey</pre>
+          </div>
+          <figure class="bench">
+            <div class="bench-row">
+              <div class="bench-head">
+                <p>Blackjack showdown key<span>Setup and contribution</span></p>
+                <b>10.9×</b>
+              </div>
+              <div class="meter new"><span>groth16 · 31.32 s</span><i style="--w: 9.2%"></i></div>
+              <div class="meter"><span>snarkjs · 340.69 s</span><i style="--w: 100%"></i></div>
+            </div>
+            <div class="bench-row">
+              <div class="bench-head">
+                <p>Blackjack showdown proof<span>661,104 signals</span></p>
+                <b>1.9×</b>
+              </div>
+              <div class="meter new"><span>groth16 · 1.75 s</span><i style="--w: 53.4%"></i></div>
+              <div class="meter"><span>rapidsnark · 3.28 s</span><i style="--w: 100%"></i></div>
+            </div>
+            <div class="bench-row">
+              <div class="bench-head">
+                <p>Poker showdown proof<span>2,244,633 signals</span></p>
+                <b>1.5×</b>
+              </div>
+              <div class="meter new"><span>groth16 · 6.58 s</span><i style="--w: 65.7%"></i></div>
+              <div class="meter"><span>rapidsnark · 10.02 s</span><i style="--w: 100%"></i></div>
+            </div>
+            <figcaption>Apple M1 Max, second run. The method is in the repository README.</figcaption>
+          </figure>
+        </div>
+        <div class="seats forks">
+          <article class="seat">
+            <p class="kicker">IceColdCasino/circom · 2.2.4</p>
+            <h3>circom, patched.</h3>
+            <p>
+              <code>--O2</code> linear simplification no longer joins clusters
+              through private inputs or public signals. Chains that meet only
+              there are simplified in parallel, then a second pass simplifies
+              the residuals together. Large shuffle circuits now finish
+              instead of running Gaussian elimination on one cluster.
+              Constraint and wire counts are unchanged, but the R1CS differs
+              from upstream, so proving keys are regenerated. Bitwise
+              complement now reduces its operand modulo the field first.
+            </p>
+          </article>
+          <article class="seat">
+            <p class="kicker">IceColdCasino/circomspect · 0.11.0</p>
+            <h3>circomspect, extended.</h3>
+            <p>
+              Static analysis for these circuits, forked from Circomspect 0.9.
+              <code>signal-dependent-assert</code> errors on asserts whose
+              conditions depend on signals. <code>parallel-output-in-loop</code>
+              warns when a parallel component is read in the loop that starts
+              it. The <code>LessThan</code> and <code>Num2Bits</code> checks
+              report fewer false positives, including on hash-bound signals.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="publication" aria-labelledby="publication-title">
@@ -319,21 +803,33 @@
         <div class="pub">
           <div>
             <p>
-              <strong>The public tree is the Circom sources and the protocol notes.</strong>
-              It exists for audit and transparency. Copyright © 2026 Barrett Harber.
-              All rights reserved. USPTO application 19/811,546 is patent pending.
-              No copyright license and no patent license are granted.
+              <strong>The code repository holds the whole system.</strong>
+              Circuits and protocol notes, the Zig library, the TypeScript
+              host and its tests, the casino and light-casino programs, the
+              Arcis instructions, the macOS app, the Lean model, and the
+              proving keys in Git LFS.
             </p>
             <p>
-              Arcium MPC, the Solana programs, and the native application live
-              outside that repository. Those layers consume the same hashes
-              and proofs.
+              It is published for audit and transparency. Copyright © 2026
+              Barrett Harber. All rights reserved. USPTO application
+              19/811,546 is patent pending. No copyright license and no patent
+              license are granted.
+            </p>
+            <p>
+              The proving keys come from one local contribution, not a
+              multi-party ceremony. The circom and circomspect forks are
+              GPL-3.0.
             </p>
           </div>
           <div class="links">
             <a href="https://github.com/IceColdCasino"><span>Organization</span>github.com/IceColdCasino</a>
-            <a href="https://github.com/IceColdCasino/repo"><span>Circuits</span>github.com/IceColdCasino/repo</a>
+            <a href="https://github.com/IceColdCasino/repo"><span>Code</span>github.com/IceColdCasino/repo</a>
             <a href="https://github.com/IceColdCasino/repo/blob/main/docs/zk-casino/README.md"><span>Protocol notes</span>docs/zk-casino</a>
+            <a href="https://github.com/IceColdCasino/repo/blob/main/docs/arcium.md"><span>MPC notes</span>docs/arcium.md</a>
+            <a href="https://github.com/IceColdCasino/repo/blob/main/docs/on-chain.md"><span>On-chain notes</span>docs/on-chain.md</a>
+            <a href="https://github.com/IceColdCasino/groth16"><span>Prover</span>github.com/IceColdCasino/groth16</a>
+            <a href="https://github.com/IceColdCasino/circom"><span>Compiler</span>github.com/IceColdCasino/circom</a>
+            <a href="https://github.com/IceColdCasino/circomspect"><span>Linter</span>github.com/IceColdCasino/circomspect</a>
           </div>
         </div>
       </section>

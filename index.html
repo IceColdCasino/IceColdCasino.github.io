@@ -206,6 +206,18 @@
             </div>
           </li>
           <li>
+            <time datetime="1979">1979</time>
+            <div>
+              <h3>A secret in pieces.</h3>
+              <p>
+                Adi Shamir splits a secret into shares. A large enough group
+                of shares restores it, and a smaller group learns nothing.
+                Threshold keys, and computation on shared data, are built on
+                this.
+              </p>
+            </div>
+          </li>
+          <li>
             <time datetime="1981">1981</time>
             <div>
               <h3>The color of a card leaks.</h3>
@@ -223,6 +235,18 @@
                 Shafi Goldwasser and Silvio Micali define encryption that hides
                 every partial fact about a message, and a two-player poker
                 protocol with that guarantee.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1982">1982</time>
+            <div>
+              <h3>Who is richer.</h3>
+              <p>
+                Andrew Yao asks how people can compute a function of their
+                private numbers and learn only the answer. His case is which
+                of two millionaires is richer. He treats mental poker as the
+                same kind of problem.
               </p>
             </div>
           </li>
@@ -268,13 +292,41 @@
             </div>
           </li>
           <li>
+            <time datetime="1986">1986</time>
+            <div>
+              <h3>Any function, two parties.</h3>
+              <p>
+                Andrew Yao shows two parties with private inputs can compute
+                any function together. Each learns its own output and nothing
+                further about the other’s input.
+              </p>
+            </div>
+          </li>
+          <li>
             <time datetime="1987">1987</time>
             <div>
-              <h3>Any mental game.</h3>
+              <h3>Multiparty computation.</h3>
               <p>
-                Oded Goldreich, Silvio Micali, and Avi Wigderson show how to
-                play any game so that honest players learn the outcome and
-                nothing more, provided most of the players are honest.
+                Oded Goldreich, Silvio Micali, and Avi Wigderson extend that
+                to any number of parties and any function. Honest players
+                learn the output and nothing more, provided most of them are
+                honest. The chips here move under that rule. An Arcium cluster
+                runs each instruction, and the balances stay encrypted.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1988">1988</time>
+            <div>
+              <h3>Computation on shares.</h3>
+              <p>
+                Michael Ben-Or, Shafi Goldwasser, and Avi Wigderson prove the
+                same from shares alone, with no computational assumption. If
+                fewer than half the parties pool what they see while following
+                the protocol, they learn nothing beyond the output. If fewer than
+                a third may cheat, they still learn nothing and cannot change
+                the result. David Chaum, Claude Crépeau, and Ivan Damgård give
+                an unconditional protocol the same year.
               </p>
             </div>
           </li>
@@ -383,8 +435,9 @@
                 those keys, and a partial decryption stays sealed until a
                 value should open. The opened values are evaluated in a
                 proof, and the faces stay off the public record. A card, a
-                die, a reel stop,
-                and a bingo ball are the same shoe with a different evaluation.
+                die, a reel stop, and a bingo ball are the same shoe with a
+                different evaluation. The payout is multiparty computation on
+                encrypted balances.
               </p>
             </div>
           </li>

@@ -424,6 +424,86 @@
               </p>
             </div>
           </li>
+          <li class="era"><h3>On Solana</h3></li>
+          <li>
+            <time datetime="2017">2017</time>
+            <div>
+              <h3>Proof of history.</h3>
+              <p>
+                Anatoly Yakovenko proposes a ledger that records the passage
+                of time between events, so the network can order transactions
+                without every node consulting every other node. Solana is that
+                design.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2020-03-16">2020</time>
+            <div>
+              <h3>Mainnet beta.</h3>
+              <p>
+                The network starts on March 16, 2020. A program on it runs in
+                a virtual machine and asks the runtime for the heavy
+                cryptography through syscalls.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2021">2021</time>
+            <div>
+              <h3>Light Protocol.</h3>
+              <p>
+                Light begins building zero-knowledge programs on Solana. The
+                work includes contributions to the zero-knowledge syscalls in
+                the Solana client.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2024-05">2024</time>
+            <div>
+              <h3>Arcium.</h3>
+              <p>
+                In May 2024 Yannik Schrade, Julian Deschler, Nicolas Schapeler,
+                and Lukas Steiner, the team behind Elusiv, announce Arcium. A
+                multiparty execution environment runs a computation on
+                encrypted data across nodes, and the plaintext stays split
+                across them.
+                This casino queues its chip instructions to an Arcium cluster.
+                The balances are Rescue ciphertexts, and a signed callback
+                writes the new ciphertext back.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2024-06">2024</time>
+            <div>
+              <h3>ZK compression.</h3>
+              <p>
+                In June 2024 Light Protocol and Helius put ZK compression on
+                Solana mainnet. An account can be stored as a hash in a Merkle
+                tree, checked with a small proof, instead of paying for a full
+                account. Shuffle and share artifacts here can be stored that
+                way.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2024">2024</time>
+            <div>
+              <h3>The syscalls.</h3>
+              <p>
+                Later in 2024 the runtime turns on the two calls the verifier
+                needs. At mainnet epoch 638,
+                <code>sol_alt_bn128_group_op</code> adds two BN254 points,
+                multiplies a point by a scalar, and checks a pairing. At epoch
+                644, <code>sol_poseidon</code> hashes up to twelve BN254 field
+                elements. light-casino verifies every Groth16 proof with the
+                pairing call, and computes the on-chain Poseidon commitments
+                with the hash call.
+              </p>
+            </div>
+          </li>
           <li class="era"><h3>This protocol</h3></li>
           <li class="now">
             <time datetime="2026-09-18">2026</time>

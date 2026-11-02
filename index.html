@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261101">
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -28,6 +28,7 @@
       <nav aria-label="Page">
         <a href="#why">Why it’s fair</a>
         <a href="#how">How it works</a>
+        <a href="#history">History</a>
         <a href="#tech">Technology</a>
         <a href="https://github.com/IceColdCasino">GitHub</a>
       </nav>
@@ -167,6 +168,227 @@
         </p>
       </section>
 
+      <section id="history" aria-labelledby="history-title">
+        <div class="section-head">
+          <p class="kicker">History</p>
+          <h2 id="history-title">Fifty years to a receipt.</h2>
+          <p class="deck">
+            A fair hand for people who are not in the same room, with nothing
+            revealed but the result. Years are the year of the paper.
+          </p>
+        </div>
+        <ol class="timeline">
+          <li class="era"><h3>A fair deal, with no dealer</h3></li>
+          <li>
+            <time datetime="1976">1976</time>
+            <div>
+              <h3>A secret, agreed in public.</h3>
+              <p>
+                Whitfield Diffie and Martin Hellman show that two people can
+                agree on a secret while everyone else is listening. Public-key
+                cryptography starts here, on the discrete logarithm.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1979">1979</time>
+            <div>
+              <h3>Mental poker.</h3>
+              <p>
+                Adi Shamir, Ron Rivest, and Len Adleman deal a fair hand with
+                no cards and no dealer. The deck is locked with the commutative
+                form of RSA, which they had published in 1978, so each player
+                can shuffle it without seeing a face. They also show that a
+                perfectly private deal is impossible unless some problem is
+                hard to compute.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1981">1981</time>
+            <div>
+              <h3>The color of a card leaks.</h3>
+              <p>
+                Richard Lipton shows that the 1979 protocol reveals partial
+                information about a hidden card, including its color.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1982">1982</time>
+            <div>
+              <h3>Every bit stays hidden.</h3>
+              <p>
+                Shafi Goldwasser and Silvio Micali define encryption that hides
+                every partial fact about a message, and a two-player poker
+                protocol with that guarantee.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1984">1984</time>
+            <div>
+              <h3>Any number of players.</h3>
+              <p>Moti Yung extends mental poker past two players.</p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1985">1985</time>
+            <div>
+              <h3>Zero knowledge.</h3>
+              <p>
+                Shafi Goldwasser, Silvio Micali, and Charles Rackoff define a
+                proof that convinces a checker and reveals nothing else. The
+                journal version appears in 1989.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1985">1985</time>
+            <div>
+              <h3>ElGamal.</h3>
+              <p>
+                Taher ElGamal builds encryption and signatures on the discrete
+                logarithm. A ciphertext can be randomized again without the
+                key, which is what a hidden shuffle needs. This shoe is locked
+                with a threshold form of that encryption.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1986">1986</time>
+            <div>
+              <h3>The fold stays hidden.</h3>
+              <p>
+                Claude Crépeau gives a zero-knowledge poker protocol whose
+                check does not require every hand to be opened at the end. A
+                player’s strategy can stay secret.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1987">1987</time>
+            <div>
+              <h3>Any mental game.</h3>
+              <p>
+                Oded Goldreich, Silvio Micali, and Avi Wigderson show how to
+                play any game so that honest players learn the outcome and
+                nothing more, provided most of the players are honest.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1988">1988</time>
+            <div>
+              <h3>One message.</h3>
+              <p>
+                Manuel Blum, Paul Feldman, and Silvio Micali show a
+                zero-knowledge proof that is a single message. Anyone can
+                check it later.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="1989">1989</time>
+            <div>
+              <h3>A key with several holders.</h3>
+              <p>
+                Yvo Desmedt and Yair Frankel split a private key so that
+                opening a ciphertext takes several holders.
+              </p>
+            </div>
+          </li>
+          <li class="era"><h3>A proof the size of a receipt</h3></li>
+          <li>
+            <time datetime="2005">2005</time>
+            <div>
+              <h3>A curve made for pairing.</h3>
+              <p>
+                Paulo Barreto and Michael Naehrig construct pairing-friendly
+                elliptic curves of prime order. Proofs here are checked with a
+                pairing on BN254, a curve from that family.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2013">2013</time>
+            <div>
+              <h3>A short proof of a whole computation.</h3>
+              <p>
+                Rosario Gennaro, Craig Gentry, Bryan Parno, and Mariana
+                Raykova show that any computation can have a succinct
+                non-interactive proof. Pinocchio, by Parno, Jon Howell,
+                Gentry, and Raykova, makes it a working system. The proof is a
+                few hundred bytes, whatever the computation was.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2016">2016</time>
+            <div>
+              <h3>Groth16.</h3>
+              <p>
+                Jens Groth brings that proof down to three elliptic-curve
+                points. Checking it is a pairing equation, small enough to run
+                on Solana. Every phase of this casino is a Groth16 proof.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2018">2018</time>
+            <div>
+              <h3>Baby Jubjub.</h3>
+              <p>
+                Barry Whitehat, Marta Bellés-Muñoz, and Jordi Baylina specify
+                a twisted Edwards curve over the scalar field of BN254, named
+                for Zcash’s Jubjub. A circuit can prove
+                <span class="math">pk = sk · G</span> in the same field the
+                proof uses. The formal paper, with Vanesa Daza and Jose Luis
+                Muñoz-Tapia, is published in 2021.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2018">2018</time>
+            <div>
+              <h3>Circom.</h3>
+              <p>
+                Jordi Baylina and iden3 release Circom, a language for the
+                arithmetic circuits those proofs check. The circuits for these
+                games are written in it.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2019">2019</time>
+            <div>
+              <h3>Poseidon.</h3>
+              <p>
+                Lorenzo Grassi, Dmitry Khovratovich, Christian Rechberger,
+                Arnab Roy, and Markus Schofnegger design a hash that lives in
+                the proof’s field. A commitment to the private witness,
+                carried from one phase to the next, is cheap to prove.
+              </p>
+            </div>
+          </li>
+          <li class="era"><h3>This protocol</h3></li>
+          <li class="now">
+            <span class="when">Pending</span>
+            <div>
+              <h3>USPTO 19/811,546.</h3>
+              <p>
+                This protocol is patent pending. Each party proves a key, the
+                shoe is shuffled and re-encrypted under the sum of those keys,
+                and a partial decryption stays sealed until a value should
+                open. The opened values are evaluated in a proof, and the
+                faces stay off the public record. A card, a die, a reel stop,
+                and a bingo ball are the same shoe with a different evaluation.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
       <section id="tech" class="tech-intro" aria-labelledby="tech-title">
         <div class="section-head">
           <p class="kicker">Under the hood · USPTO 19/811,546</p>
@@ -186,6 +408,7 @@
           </p>
         </div>
         <nav class="index" aria-label="Technical sections">
+          <a href="#history">History</a>
           <a href="#protocol">Protocol</a>
           <a href="#encryption">Encryption</a>
           <a href="#mpc">MPC + ZK</a>
